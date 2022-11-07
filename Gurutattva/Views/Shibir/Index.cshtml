@@ -1,0 +1,59 @@
+﻿@model List<Shibir>
+@{
+    ViewData["Title"] = "Shibirs";
+}
+
+@*<h2>Shibir List</h2>*@
+<a class="btn btn-secondary mt-4" asp-controller="Shibir" asp-action="Add">Add New Shibir</a>
+<table class="table table-bordered my-4 table-striped">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Shibir Start Date</th>
+            <th>Shibir Start Date</th>
+            <th>Shibir Times</th>
+            <th>Remarks</th>
+        </tr>
+    </thead>
+   @* <tbody>
+        @foreach (var obj in Model)
+        {
+            <tr>
+                <td width="50%">
+                    <a style="text-decoration:none" asp-controller="Shibir" asp-action="Details"
+                   asp-route-id="@obj.ShibirId">@obj.FirstName</a>
+                </td>
+                <td width="30%">
+                    <a style="text-decoration:none" asp-controller="Shibir" asp-action="Details"
+                   asp-route-id="@obj.ShibirId"
+                   >@obj.LastName</a>
+                </td>
+                <td width="30%">
+                    @obj.PhoneNumber
+                </td>
+                <td width="30%">
+                    @obj.EmailAddress
+                </td>
+                <td width="30%">
+                    @obj.Address
+                </td>
+                <td width="30%">
+                    @obj.StartDate
+                </td>
+                <td width="30%">
+                    @obj.EndDate
+                </td> 
+                <td width="30%">
+                    @obj.PreferredTime
+                </td>
+                <td width="30%">
+                    @obj.Query
+                </td>
+            </tr>
+        }
+    </tbody>*@
+</table>
