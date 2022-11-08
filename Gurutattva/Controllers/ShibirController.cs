@@ -82,9 +82,18 @@ namespace Gurutattva.Controllers
         {
             _db.Shibirs.Remove(shibir);
             _db.SaveChanges();
-            return RedirectToAction("Index", "Shibir    ");
+            return RedirectToAction("Index", "Shibir");
         }
 
-      
+        public IActionResult Details(int id)
+        {
+             Shibir shibir = _db.Shibirs
+             .FirstOrDefault(p => p.Id == id);
+               
+
+            // bind product to view
+            return View(shibir);
+        }
+
     }
 }

@@ -1,0 +1,155 @@
+﻿@model Shibir
+
+<h2>Shibir Details</h2>
+
+<input asp-for="Id" hidden />
+<div class="col-sm-8">
+    <table class="table my-4 table-bordered table-striped">
+        <tr>
+            <td>First Name:</td>
+            <td>@Model.FirstName</td>
+        </tr>
+        <tr>
+            <td>Last Name:</td>
+            <td>@Model.LastName</td>
+        </tr>
+        <tr>
+            <td>Phone:</td>
+            <td>@Model.PhoneNumber</td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td>
+                @Model.EmailAddress
+            </td>
+        </tr>
+        <tr>
+            <td>Start Date:</td>
+            <td>
+                @Model.StartDate
+            </td>
+        </tr>
+        <tr>
+            <td>Start Time:</td>
+            <td>
+                @Model.StartTime
+            </td>
+        </tr>
+        <tr>
+            <td>Shibir Name:</td>
+            <td>
+                @Model.ShibirName
+            </td>
+        </tr>
+        <tr>
+            <td>Capacity</td>
+            <td>
+                @Model.Capacity
+            </td>
+        </tr>
+        <tr>
+            <td>Street Address1</td>
+            <td>
+                @Model.StreetAddress1
+            </td>
+        </tr>
+        <tr>
+            <td>Street Address2</td>
+            <td>
+                @Model.StreetAddress2
+            </td>
+        </tr>
+        <tr>
+            <td>PinCode</td>
+            <td>
+                @Model.PinCode
+            </td>
+        </tr>
+        <tr>
+            <td>Latitude</td>
+            <td>
+                @Model.Latitude
+            </td>
+        </tr>
+        <tr>
+            <td>Longitude</td>
+            <td>
+                @Model.Longitude
+            </td>
+        </tr>
+        <tr>
+            <td>Country Name</td>
+            <td>
+                @Model.CountryName
+            </td>
+        </tr>
+        <tr>
+            <td>State Name</td>
+            <td>
+                @Model.StateName
+            </td>
+        </tr>
+        <tr>
+            <td>District Name</td>
+            <td>
+                @Model.DistrictName
+            </td>
+        </tr>
+        <tr>
+            <td>Taluka Name</td>
+            <td>
+                @Model.TalukaName
+            </td>
+        </tr>
+        <tr>
+            <td>City Name</td>
+            <td>
+                @Model.CityName
+            </td>
+        </tr>
+        <tr>
+            <td>Sanchalak Name 1</td>
+            <td>
+                @Model.SanchalakName1
+            </td>
+        </tr>
+        <tr>
+            <td>Sanchalak Email 1</td>
+            <td>
+                @Model.SanchalakEmail1
+            </td>
+        </tr>
+        <tr>
+            <td>Sanchalak Phone 1</td>
+            <td>
+                @Model.SanchalakPhoneNumber1 
+            </td>
+        </tr>
+        <tr>
+            <td>Sanchalak Name 2</td>
+            <td>
+                @Model.SanchalakName2
+            </td>
+        </tr>
+        <tr>
+            <td>Sanchalak Email 2</td>
+            <td>
+                @Model.SanchalakEmail2
+            </td>
+        </tr>
+        <tr>
+            <td>Sanchalak Phone 2</td>
+            <td>
+                @Model.SanchalakPhoneNumber2
+            </td>
+        </tr>
+        
+    </table>
+    <a asp-controller="Shibir" asp-action="Edit"
+       asp-route-id="@Model.Id" class="btn btn-secondary">Edit</a>
+    &nbsp<a asp-controller="Shibir" asp-action="Delete"
+            asp-route-id="@Model.Id" class="btn btn-secondary">Delete</a>
+    &nbsp<a asp-controller="Shibir" asp-action="Index"
+            asp-route-id="@Model.Id" class="btn btn-secondary">Home</a>
+
+</div>
