@@ -60,3 +60,7 @@ E:\Gurutattva\Gurutattva\Gurutattva\obj\Debug\net6.0\refint\Gurutattva.dll
 E:\Gurutattva\Gurutattva\Gurutattva\obj\Debug\net6.0\Gurutattva.pdb
 E:\Gurutattva\Gurutattva\Gurutattva\obj\Debug\net6.0\Gurutattva.genruntimeconfig.cache
 E:\Gurutattva\Gurutattva\Gurutattva\obj\Debug\net6.0\ref\Gurutattva.dll
+E:\Gurutattva\Gurutattva\Gurutattva\bin\Debug\net6.0\FluentValidation.dll
+E:\Gurutattva\Gurutattva\Gurutattva\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
+E:\Gurutattva\Gurutattva\Gurutattva\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
+E:\Gurutattva\Gurutattva\Gurutattva\obj\Debug\net6.0\Gurutattva.MvcApplicationPartsAssemblyInfo.cs

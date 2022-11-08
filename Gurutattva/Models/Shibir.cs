@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FluentValidation;
+using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Text.RegularExpressions;
 
 namespace Gurutattva.Models
 {
@@ -87,6 +89,55 @@ namespace Gurutattva.Models
 
         //public City City { get; set; }
 
+    }
+
+
+    public class ShibirValidator : AbstractValidator<Shibir>
+    {
+        public ShibirValidator()
+        {
+            RuleFor(c => c.FirstName).NotEmpty().MaximumLength(30);
+            RuleFor(c => c.LastName).NotEmpty().MaximumLength(30);
+            RuleFor(c => c.PhoneNumber).NotEmpty();
+            RuleFor(c => c.EmailAddress).NotEmpty().MaximumLength(152).EmailAddress();
+            RuleFor(c=>c.StartDate).NotEmpty();
+            RuleFor(c => c.ShibirName).NotEmpty();
+            RuleFor(c=>c.Capacity).NotEmpty();
+            //RuleFor(c=>c.StreetAddress1).NotEmpty();
+            //RuleFor(c => c.PinCode).NotEmpty();
+            RuleFor(C => C.StateName).NotEmpty();
+            RuleFor(c=>c.DistrictName).NotEmpty();
+            RuleFor(c => c.TalukaName).NotEmpty();
+            RuleFor(c => c.CityName).NotEmpty();
+          
+
+            RuleFor(c => c.Latitude).Must(c => c <= 90 && c >= -90)
+                .WithMessage("Latitude must be between -90 <-> 90 degrees").NotNull().When(c => c.Longitude != null);
+            RuleFor(c => c.Longitude).Must(c => c <= 180 && c >= -180)
+                .WithMessage("Longitude must be between -180 <-> 180 degrees").NotNull().When(c => c.Latitude != null);
+
+            RuleFor(c => c.StreetAddress1).NotEmpty().MaximumLength(150);
+            RuleFor(c => c.PinCode).NotEmpty().Matches(new Regex(@"^[1-9][0-9]{5}$"));
+
+            RuleFor(c => c.SanchalakName1).NotEmpty().MaximumLength(152).Matches(new Regex(@"^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$"));
+            RuleFor(c => c.SanchalakEmail1).NotEmpty().MaximumLength(152).EmailAddress();
+            RuleFor(c => c.SanchalakPhoneNumber1).NotEmpty().MaximumLength(10);
+
+            RuleFor(c => c.SanchalakName2)
+                .NotEmpty().When(c =>
+                    !string.IsNullOrWhiteSpace(c.SanchalakEmail2) || !string.IsNullOrWhiteSpace(c.SanchalakPhoneNumber2))
+                .MaximumLength(152).Matches(new Regex(@"^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$"));
+
+            RuleFor(c => c.SanchalakEmail2)
+                .NotEmpty().When(c =>
+                    !string.IsNullOrWhiteSpace(c.SanchalakName2) || !string.IsNullOrWhiteSpace(c.SanchalakPhoneNumber2))
+                .MaximumLength(152).EmailAddress();
+
+            RuleFor(c => c.SanchalakPhoneNumber2)
+                .NotEmpty().When(c =>
+                    !string.IsNullOrWhiteSpace(c.SanchalakName2) || !string.IsNullOrWhiteSpace(c.SanchalakEmail2))
+                .MaximumLength(10);
+        }
     }
     //public enum City { 
     //    Sihor,

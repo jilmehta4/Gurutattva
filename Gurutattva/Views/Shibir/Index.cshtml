@@ -10,26 +10,41 @@
         <tr>
             <th>First Name</th>
             <th>Last Name</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th>Address</th>
+            <th>PhoneNumber</th>
+            <th>EmailAddress</th>
             <th>Shibir Start Date</th>
-            <th>Shibir Start Date</th>
-            <th>Shibir Times</th>
-            <th>Remarks</th>
+            <th>Shibir Start Time</th>
+            <th>Shibir Name</th>
+            <th>Capacity</th>
+            <th>StreetAddress1</th>
+            <th>StreetAddress2</th>
+            <th>PinCode</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+            <th>CountryName</th>
+            <th>StateName</th>
+            <th>DistrictName</th>
+            <th>TalukaName</th>
+            <th>CityName</th>
+            <th>SanchalakName1</th>
+            <th>SanchalakEmail1</th>
+            <th>SanchalakPhoneNumber1</th>
+            <th>SanchalakName2</th>
+            <th>SanchalakEmail2</th>
+            <th>SanchalakPhoneNumber2</th>
         </tr>
     </thead>
-   @* <tbody>
+    <tbody>
         @foreach (var obj in Model)
         {
             <tr>
                 <td width="50%">
                     <a style="text-decoration:none" asp-controller="Shibir" asp-action="Details"
-                   asp-route-id="@obj.ShibirId">@obj.FirstName</a>
+                   asp-route-id="@obj.Id">@obj.FirstName</a>
                 </td>
                 <td width="30%">
                     <a style="text-decoration:none" asp-controller="Shibir" asp-action="Details"
-                   asp-route-id="@obj.ShibirId"
+                   asp-route-id="@obj.Id"
                    >@obj.LastName</a>
                 </td>
                 <td width="30%">
@@ -39,21 +54,66 @@
                     @obj.EmailAddress
                 </td>
                 <td width="30%">
-                    @obj.Address
-                </td>
-                <td width="30%">
                     @obj.StartDate
                 </td>
                 <td width="30%">
-                    @obj.EndDate
-                </td> 
-                <td width="30%">
-                    @obj.PreferredTime
+                    @obj.StartTime
                 </td>
                 <td width="30%">
-                    @obj.Query
+                    @obj.ShibirName
+                </td> 
+                <td width="30%">
+                    @obj.Capacity
+                </td>
+                <td width="30%">
+                    @obj.StreetAddress1
+                </td>
+                <td width="30%">
+                    @obj.StreetAddress2
+                </td>
+                <td width="30%">
+                    @obj.PinCode
+                </td> 
+                <td width="30%">
+                    @obj.Latitude
+                </td> 
+                <td width="30%">
+                    @obj.Longitude
+                </td> 
+                <td width="30%">
+                    @obj.CountryName
+                </td> 
+                <td width="30%">
+                    @obj.StateName
+                </td> 
+                <td width="30%">
+                    @obj.DistrictName
+                </td> 
+                <td width="30%">
+                    @obj.TalukaName
+                </td> 
+                <td width="30%">
+                    @obj.CityName
+                </td> 
+                <td width="30%">
+                    @obj.SanchalakName1
+                </td>
+                <td width="30%">
+                    @obj.SanchalakEmail1
+                </td>
+                <td width="30%">
+                    @obj.SanchalakPhoneNumber1
+                </td>
+                <td width="30%">
+                    @obj.SanchalakName2
+                </td>
+                <td width="30%">
+                    @obj.SanchalakEmail2
+                </td>
+                <td width="30%">
+                    @obj.SanchalakPhoneNumber2
                 </td>
             </tr>
         }
-    </tbody>*@
+    </tbody>
 </table>

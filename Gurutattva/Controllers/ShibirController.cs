@@ -53,12 +53,14 @@ namespace Gurutattva.Controllers
         {
             if (ModelState.IsValid)
             {
+                ShibirValidator validator = new ShibirValidator();
+                validator.Validate(shibir);
                 if (shibir.Id == 0)
                     _db.Shibirs.Add(shibir);
                 else
                     _db.Shibirs.Update(shibir);
                 _db.SaveChanges();
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Shibir");
             }
             else
             {

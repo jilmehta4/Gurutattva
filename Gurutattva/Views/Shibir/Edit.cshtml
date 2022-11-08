@@ -7,7 +7,7 @@
 <h2>@title</h2>
 
 
-<form asp-route-returnUrl="" method="post" autocomplete="off">
+<form asp-action="Edit" method="post" autocomplete="off">
     <input type="hidden" asp-for="Id" />
     <div class="form row">
         <div class="form-group col-lg-6">
@@ -34,34 +34,28 @@
         </div>
 
     </div>
-
-    <hr />
     <h3>Shibir Details</h3>
+    <hr />
     <div class="form row">
         <div class="form-group col-lg-4">
             <label asp-for="StartDate" class="required"></label>
-            <input type="datetime" asp-for="StartDate" class="form-control" />
+            <input type="date" asp-for="StartDate" class="form-control" />
             <span asp-validation-for="StartDate" class="text-danger"></span>
         </div>
         <div class="form-group col-lg-4">
             <label asp-for="StartTime" class="required"></label>
-            <input type="datetime" asp-for="StartTime" class="form-control" />
+            <input type="time" asp-for="StartTime" class="form-control" />
             <small class="form-text text-muted">Time when you want to Start shibir</small>
             <span asp-validation-for="StartTime" class="text-danger"></span>
         </div>
-        <div class="form-group col-lg-4">
-            <label asp-for="Capacity" class="required"></label>
-            <input type="text" asp-for="Capacity" class="form-control" />
-            <small class="form-text text-muted">Number of sadhaks that can sit in hall</small>
-            <span asp-validation-for="Capacity" class="text-danger"></span>
-        </div>
+        
     </div>
     <div class="row">
-        <div class="form-group col-lg-4">
+      @*  <div class="form-group col-lg-4">
             <label asp-for="EndDate" class="required"></label>
             <input type="datetime" asp-for="EndDate" class="form-control" />
             <span asp-validation-for="EndDate" class="text-danger"></span>
-        </div>
+        </div>*@
         @*<div class="form-group col-lg-4">
         <label asp-for="EndTime" class="required"></label>
         <input type="datetime" asp-for="EndTime" class="form-control" />
@@ -78,17 +72,23 @@
             </div>
             <span asp-validation-for="EndTime" class="text-danger"></span>
         </div>
-
+        <div class="form-group col-lg-4">
+            <label asp-for="Capacity" class="required"></label>
+            <input type="text" asp-for="Capacity" class="form-control" />
+            <small class="form-text text-muted">Number of sadhaks that can sit in hall</small>
+            <span asp-validation-for="Capacity" class="text-danger"></span>
+        </div>
     </div>
-    <hr />
+    
     <h4>Address</h4>
-    <div class="form-row">
-        <div class="form-group">
+    <hr />
+    <div class="form row">
+        <div class="form-group col-lg-6">
             <label asp-for="StreetAddress1" class="required"></label>
             <input type="text" asp-for="StreetAddress1" class="form-control" />
             <span asp-validation-for="StreetAddress1" class="text-danger"></span>
         </div>
-        <div class="form-group">
+        <div class="form-group col-lg-6">
             <label asp-for="StreetAddress2" class="required"></label>
             <input type="text" asp-for="StreetAddress2" class="form-control" />
             <span asp-validation-for="StreetAddress2" class="text-danger"></span>
@@ -138,7 +138,7 @@
             <span asp-validation-for="Longitude" class="text-danger"></span>
         </div>
     </div>
-    <hr />
+   
     @*<h3>Sanchalak Details</h3>
     <div class="form-row">
     <div class="form-group col-lg-3">
@@ -311,20 +311,20 @@
     </div>*@
 
     <h4>Contacts</h4>
-
+    <hr/>
     <div class="form row">
-        <div class="form-group">
+        <div class="form-group col-lg-6">
             <label asp-for="SanchalakName1" class="required"></label>
             <input type="text" asp-for="SanchalakName1" class="form-control" />
             <small class="form-text text-muted">Only alphabets and space</small>
             <span asp-validation-for="SanchalakName1" class="text-danger"></span>
         </div>
-        <div class="form-group col-lg-6">
+        <div class="form-group col-lg-3">
             <label asp-for="SanchalakEmail1" class="required"></label>
             <input type="text" asp-for="SanchalakEmail1" class="form-control" />
             <span asp-validation-for="SanchalakEmail1" class="text-danger"></span>
         </div>
-        <div class="form-group col-lg-6">
+        <div class="form-group col-lg-3">
             <label asp-for="SanchalakPhoneNumber1" class="required"></label>
             <input type="text" asp-for="SanchalakPhoneNumber1" class="form-control" />
             <small class="form-text text-muted">Length must be 10 digits</small>
@@ -333,18 +333,18 @@
     </div>
 
     <div class="form row">
-        <div class="form-grouP">
+        <div class="form-group col-lg-6">
             <label asp-for="SanchalakName2"></label>
             <input type="text" asp-for="SanchalakName2" class="form-control" />
             <small class="form-text text-muted">Only alphabets and space</small>
             <span asp-validation-for="SanchalakName2" class="text-danger"></span>
         </div>
-        <div class="form-group col-lg-6">
+        <div class="form-group col-lg-3">
             <label asp-for="SanchalakEmail2"></label>
             <input type="text" asp-for="SanchalakEmail2" class="form-control" />
             <span asp-validation-for="SanchalakEmail2" class="text-danger"></span>
         </div>
-        <div class="form-group col-lg-6">
+        <div class="form-group col-lg-3">
             <label asp-for="SanchalakPhoneNumber2"></label>
             <input type="text" asp-for="SanchalakPhoneNumber2" class="form-control" />
             <small class="form-text text-muted">Length must be 10 digits</small>
