@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Gurutattva\\New folder\\Gurutattva\\Gurutattva.csproj": {}
+    "E:\\Gurutattva\\Gurutattva\\Gurutattva\\Gurutattva.csproj": {}
   },
   "projects": {
-    "E:\\Gurutattva\\New folder\\Gurutattva\\Gurutattva.csproj": {
+    "E:\\Gurutattva\\Gurutattva\\Gurutattva\\Gurutattva.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Gurutattva\\New folder\\Gurutattva\\Gurutattva.csproj",
+        "projectUniqueName": "E:\\Gurutattva\\Gurutattva\\Gurutattva\\Gurutattva.csproj",
         "projectName": "Gurutattva",
-        "projectPath": "E:\\Gurutattva\\New folder\\Gurutattva\\Gurutattva.csproj",
+        "projectPath": "E:\\Gurutattva\\Gurutattva\\Gurutattva\\Gurutattva.csproj",
         "packagesPath": "C:\\Users\\Jil\\.nuget\\packages\\",
-        "outputPath": "E:\\Gurutattva\\New folder\\Gurutattva\\obj\\",
+        "outputPath": "E:\\Gurutattva\\Gurutattva\\Gurutattva\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
