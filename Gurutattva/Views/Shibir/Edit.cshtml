@@ -44,7 +44,7 @@
         </div>
         <div class="form-group col-lg-4">
             <label asp-for="StartTime" class="required"></label>
-            <input type="time" asp-for="StartTime" class="form-control" />
+            <input type="time" asp-for="StartTime" id="timepicker" class="form-control" value="@DateTime.Now.ToString("hh-mm")" />
             <small class="form-text text-muted">Time when you want to Start shibir</small>
             <span asp-validation-for="StartTime" class="text-danger"></span>
         </div>
@@ -96,86 +96,38 @@
         </div>
 
         <div class="form row" id="AddressDropdowns">
-            <div class="form-group col-lg-3">
-                <label asp-for="StateName" class="required"></label>
-@*                <select asp-for="StateName" class="form-control">
-                    <option value="">Select option</option>
-                </select>*@
-                <input asp-for="StateName" type="text" class="form-control">
-                <span asp-validation-for="StateName" class="text-danger"></span>
-            </div>
-            <div class="form-group col-lg-3">
-                <label asp-for="DistrictName" class="required"></label>
-@*            <select asp-for="DistrictName" class="form-control">
-                    <option value="">Select option</option>
-                </select>*@
-                <input asp-for="DistrictName" type="text" class="form-control">
-            <span asp-validation-for="DistrictName" class="text-danger"></span>
-            </div>
-            <div class="form-group col-lg-3">
-                <label asp-for="TalukaName" class="required"></label>
-               @* <select asp-for="TalukaName" class="form-control">
-                    <option value="">Select option</option>
-                </select>*@
-            <input asp-for="TalukaName" type="text" class="form-control">
-            <span asp-validation-for="TalukaName" class="text-danger"></span>
-            </div>
-            <div class="form-group col-lg-3">
-                <label asp-for="CityName" class="required"></label>
-           @* <select asp-for="CityName" class="form-control">
-                    <option value="">Select option</option>
-                </select>*@
-            <input asp-for="CityName" type="text" class="form-control">
-            <span asp-validation-for="CityName" class="text-danger"></span>
-            </div>
+        <div class="form-group col-lg-3">
+            <label asp-for="StateId" class="required"></label>
+            <select asp-for="StateId" class="form-control">
+                <option value="">Select option</option>
+            </select>
+            <span asp-validation-for="StateId" class="text-danger"></span>
+        </div>
+        <div class="form-group col-lg-3">
+            <label asp-for="DistrictId" class="required"></label>
+            <select asp-for="DistrictId" class="form-control">
+                <option value="">Select option</option>
+            </select>
+            <span asp-validation-for="DistrictId" class="text-danger"></span>
+        </div>
+        <div class="form-group col-lg-3">
+            <label asp-for="TalukaId" class="required"></label>
+            <select asp-for="TalukaId" class="form-control">
+                <option value="">Select option</option>
+            </select>
+            <span asp-validation-for="TalukaId" class="text-danger"></span>
+        </div>
+        <div class="form-group col-lg-3">
+            <label asp-for="CityId" class="required"></label>
+            <select asp-for="CityId" class="form-control">
+                <option value="">Select option</option>
+            </select>
+            <span asp-validation-for="CityId" class="text-danger"></span>
+        </div>
         </div>
 
 
-  @*  <div class="form row">
-
-        <div class="form-group col-lg-3">
-            <label asp-for="CountryName" class="required"></label>
-            <input type="text" asp-for="CountryName" class="form-control" />
-            <span asp-validation-for="CountryName" class="text-danger"></span>
-        </div>
-        <div class="form-group col-lg-3">
-            <label asp-for="StateName" class="required"></label>
-            <input type="text" asp-for="StateName" class="form-control" />
-            <span asp-validation-for="StateName" class="text-danger"></span>
-        </div>
-        <div class="form-group col-lg-3">
-            <label asp-for="DistrictName" class="required"></label>
-            <input type="text" asp-for="DistrictName" class="form-control" />
-            <span asp-validation-for="DistrictName" class="text-danger"></span>
-        </div>
-        <div class="form-group col-lg-3">
-            <label asp-for="TalukaName" class="required"></label>
-            <input type="text" asp-for="TalukaName" class="form-control" />
-            <span asp-validation-for="TalukaName" class="text-danger"></span>
-        </div>
-        <div class="form-group col-lg-3">
-            <label asp-for="CityName" class="required"></label>
-            <input type="text" asp-for="CityName" class="form-control" />
-            <span asp-validation-for="CityName" class="text-danger"></span>
-        </div>
-        <div class="form-group col-lg-3">
-            <label asp-for="PinCode" class="required"></label>
-            <input type="text" asp-for="PinCode" class="form-control" />
-            <span asp-validation-for="PinCode" class="text-danger"></span>
-        </div>
-        <div class="form-group col-lg-3">
-            <label asp-for="Latitude"></label>
-            <input type="text" asp-for="Latitude" class="form-control" />
-            <small class="form-text text-muted">You can obtain from Google Maps</small>
-            <span asp-validation-for="Latitude" class="text-danger"></span>
-        </div>
-        <div class="form-group col-lg-3">
-            <label asp-for="Longitude"></label>
-            <input type="text" asp-for="Longitude" class="form-control" />
-            <small class="form-text text-muted">You can obtain from Google Maps</small>
-            <span asp-validation-for="Longitude" class="text-danger"></span>
-        </div>
-    </div>*@
+  
    
     <h4>Contacts</h4>
     <hr/>
@@ -223,19 +175,7 @@
     <a href="@Url.Action("Index", "DhyanKendra", new { area = "" })" class="btn btn-primary">Cancel</a>
 </form>
 
-@section Scripts
-{
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
-        $(function () {
-            $("#datepicker").datepicker();
-        });
-    </script>
-}
-
-@*@section Scripts
+@section Footer
     {
     <partial name="_ValidationScriptsPartial" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cascading-dropdown/1.2.9/jquery.cascadingdropdown.min.js"></script>
@@ -318,8 +258,8 @@
         });
 
     </script>
-}*@
-@*
+}
+
     @section Header
     {
     <style>
@@ -327,5 +267,5 @@
             color: red;
             content: " *";
         }
-    </style>*@
-
+    </style>
+}

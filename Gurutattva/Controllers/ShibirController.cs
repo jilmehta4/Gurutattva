@@ -57,8 +57,8 @@ namespace Gurutattva.Controllers
             shibir.CountryName = "India";
             if (ModelState.IsValid)
             {
-                shibir.CountryName = "India";
-             
+                //shibir.CountryName = "India";
+                shibir.CountryId = 76;
                 if (shibir.Id == 0)
                 {
                     _db.Shibirs.Add(shibir);
