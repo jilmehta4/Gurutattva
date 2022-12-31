@@ -51,14 +51,23 @@ namespace Gurutattva.Controllers
         [HttpPost]
         public IActionResult Edit(Shibir shibir)
         {
+
+            ShibirValidator validator = new ShibirValidator();
+            validator.Validate(shibir);
+            shibir.CountryName = "India";
             if (ModelState.IsValid)
             {
-                //ShibirValidator validator = new ShibirValidator();
-                //validator.Validate(shibir);
+                shibir.CountryName = "India";
+             
                 if (shibir.Id == 0)
+                {
                     _db.Shibirs.Add(shibir);
+                }
                 else
+                {
                     _db.Shibirs.Update(shibir);
+                }
+                    
                 _db.SaveChanges();
                 return RedirectToAction("Index", "Shibir");
             }

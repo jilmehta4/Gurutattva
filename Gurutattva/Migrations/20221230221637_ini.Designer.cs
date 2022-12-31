@@ -4,6 +4,7 @@ using Gurutattva.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Gurutattva.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221230221637_ini")]
+    partial class ini
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -102,13 +104,11 @@ namespace Gurutattva.Migrations
                     b.Property<int>("ShibirName")
                         .HasColumnType("int");
 
-                    b.Property<string>("StartDate")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
 
-                    b.Property<string>("StartTime")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("StartTime")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("StateName")
                         .IsRequired()
@@ -121,33 +121,6 @@ namespace Gurutattva.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Shibirs");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Address = "Dixon Street",
-                            Capacity = 50,
-                            CityName = "Waterloo",
-                            CountryName = "India",
-                            DistrictName = "Kitchener",
-                            EmailAddress = "jilmehta52@gmaIL.com",
-                            FirstName = "Jil",
-                            LastName = "Mehta",
-                            PhoneNumber = "6478321825",
-                            PinCode = "364340",
-                            SanchalakEmail1 = "SanchalakEmail1",
-                            SanchalakEmail2 = "SanchalakEmail2",
-                            SanchalakName1 = "Sanchalak1",
-                            SanchalakName2 = "SanchalakName2",
-                            SanchalakPhoneNumber1 = "3456542312",
-                            SanchalakPhoneNumber2 = "3454637234",
-                            ShibirName = 0,
-                            StartDate = "2022/08/04",
-                            StartTime = "16:00:00",
-                            StateName = "Ontario",
-                            TalukaName = "Waterloo"
-                        });
                 });
 #pragma warning restore 612, 618
         }

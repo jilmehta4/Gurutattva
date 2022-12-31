@@ -24,7 +24,7 @@ namespace Gurutattva.Data
             //    new PhoneNumber { Id = 2, CountryName = "Canada", CountryCode = "+1" },
             //    new PhoneNumber { Id = 3, CountryName = "USA", CountryCode = "+1" }
             //);
-            
+
             //modelBuilder.Entity<Address>().HasData(
             //    new Address
             //    {
@@ -36,46 +36,40 @@ namespace Gurutattva.Data
             //        PostalCode="N2L0J9",
             //        Country="Canda"
             //    }
-                
+
             //);
-            
+
 
             modelBuilder.Entity<Shibir>().HasData(
-                new Shibir { 
+                new Shibir
+                {
                     Id = 1,
                     FirstName = "Jil",
                     LastName = "Mehta",
-                    EmailAddress="jilmehta52@gmaIL.com",
+                    EmailAddress = "jilmehta52@gmaIL.com",
                     PhoneNumber = "6478321825",
-                    StreetAddress1="802-131 University Ave",
-                    StreetAddress2="Waterloo, Canada",
-                    StartDate= Convert.ToDateTime("2022/08/04"),
-                    EndDate= Convert.ToDateTime("2022/08/12"),
-                    StartTime = Convert.ToDateTime("16:00:00"),
-                    EndTime= Convert.ToDateTime("15:00:00"),
-                    SanchalakName1 =  "Sanchalak1",
+
+                    StartDate = "2022/08/04",
+         
+                    StartTime = "16:00:00",
+           
+                    SanchalakName1 = "Sanchalak1",
                     SanchalakEmail1 = "SanchalakEmail1",
-                    SanchalakPhoneNumber1="3456542312",
-                    SanchalakEmail2="SanchalakEmail2",
-                    SanchalakPhoneNumber2="3454637234",
+                    SanchalakPhoneNumber1 = "3456542312",
+                    SanchalakEmail2 = "SanchalakEmail2",
+                    SanchalakPhoneNumber2 = "3454637234",
                     SanchalakName2 = "SanchalakName2",
-                    Capacity=50,
-                    PinCode="364340",
-                    Latitude = 43.4643,
-                    Longitude = 80.5204,
-                    CountryName = "Canada",
+                    Capacity = 50,
+                    PinCode = "364340",
+
+                    CountryName = "India",
+                    Address ="Dixon Street",
                     StateName = "Ontario",
                     DistrictName = "Kitchener",
                     TalukaName = "Waterloo",
                     CityName = "Waterloo"
-
-
-
                 }
-               
             );
-
-            
         }
     }
 }

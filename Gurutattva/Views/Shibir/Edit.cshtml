@@ -39,7 +39,7 @@
     <div class="form row">
         <div class="form-group col-lg-4">
             <label asp-for="StartDate" class="required"></label>
-            <input type="date" asp-for="StartDate" class="form-control" id="date" name="date">
+            <input asp-for="StartDate" id="datepicker" type="text" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
             <span asp-validation-for="StartDate" class="text-danger"></span>
         </div>
         <div class="form-group col-lg-4">
@@ -51,26 +51,14 @@
         
     </div>
     <div class="row">
-      @*  <div class="form-group col-lg-4">
-            <label asp-for="EndDate" class="required"></label>
-            <input type="datetime" asp-for="EndDate" class="form-control" />
-            <span asp-validation-for="EndDate" class="text-danger"></span>
-        </div>*@
-        @*<div class="form-group col-lg-4">
-        <label asp-for="EndTime" class="required"></label>
-        <input type="datetime" asp-for="EndTime" class="form-control" />
-        <small class="form-text text-muted">Time when you want to End shibir</small>
-        <span asp-validation-for="EndTime" class="text-danger"></span>
-        </div>*@
         <div class="form-group col-lg-4">
             <label asp-for="ShibirName" class="required"></label>
             <div class="col-md-10">
                 <select asp-for="ShibirName" class="form-select" asp-items="Html.GetEnumSelectList<ShibirName>()">
                     <option selected="selected" value="">Please select</option>
                 </select>
-                <span asp-validation-for="ShibirName" class="text-danger" />
             </div>
-            <span asp-validation-for="EndTime" class="text-danger"></span>
+            <span asp-validation-for="ShibirName" class="text-danger" />
         </div>
         <div class="form-group col-lg-4">
             <label asp-for="Capacity" class="required"></label>
@@ -83,18 +71,68 @@
     <h4>Address</h4>
     <hr />
     <div class="form row">
-        <div class="form-group col-lg-6">
-            <label asp-for="StreetAddress1" class="required"></label>
-            <input type="text" asp-for="StreetAddress1" class="form-control" />
-            <span asp-validation-for="StreetAddress1" class="text-danger"></span>
+            <div class="form-group col-lg-3">
+                <label asp-for="Address" class="required"></label>
+                <input type="text" asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group col-lg-3">
+                <label asp-for="PinCode" class="required"></label>
+                <input type="text" asp-for="PinCode" class="form-control" />
+                <span asp-validation-for="PinCode" class="text-danger"></span>
+            </div>
+            <div class="form-group col-lg-3">
+                <label asp-for="Latitude"></label>
+                <input type="text" asp-for="Latitude" class="form-control" />
+                <small class="form-text text-muted">You can obtain from Google Maps</small>
+                <span asp-validation-for="Latitude" class="text-danger"></span>
+            </div>
+            <div class="form-group col-lg-3">
+                <label asp-for="Longitude"></label>
+                <input type="text" asp-for="Longitude" class="form-control" />
+                <small class="form-text text-muted">You can obtain from Google Maps</small>
+                <span asp-validation-for="Longitude" class="text-danger"></span>
+            </div>
         </div>
-        <div class="form-group col-lg-6">
-            <label asp-for="StreetAddress2" class="required"></label>
-            <input type="text" asp-for="StreetAddress2" class="form-control" />
-            <span asp-validation-for="StreetAddress2" class="text-danger"></span>
+
+        <div class="form row" id="AddressDropdowns">
+            <div class="form-group col-lg-3">
+                <label asp-for="StateName" class="required"></label>
+@*                <select asp-for="StateName" class="form-control">
+                    <option value="">Select option</option>
+                </select>*@
+                <input asp-for="StateName" type="text" class="form-control">
+                <span asp-validation-for="StateName" class="text-danger"></span>
+            </div>
+            <div class="form-group col-lg-3">
+                <label asp-for="DistrictName" class="required"></label>
+@*            <select asp-for="DistrictName" class="form-control">
+                    <option value="">Select option</option>
+                </select>*@
+                <input asp-for="DistrictName" type="text" class="form-control">
+            <span asp-validation-for="DistrictName" class="text-danger"></span>
+            </div>
+            <div class="form-group col-lg-3">
+                <label asp-for="TalukaName" class="required"></label>
+               @* <select asp-for="TalukaName" class="form-control">
+                    <option value="">Select option</option>
+                </select>*@
+            <input asp-for="TalukaName" type="text" class="form-control">
+            <span asp-validation-for="TalukaName" class="text-danger"></span>
+            </div>
+            <div class="form-group col-lg-3">
+                <label asp-for="CityName" class="required"></label>
+           @* <select asp-for="CityName" class="form-control">
+                    <option value="">Select option</option>
+                </select>*@
+            <input asp-for="CityName" type="text" class="form-control">
+            <span asp-validation-for="CityName" class="text-danger"></span>
+            </div>
         </div>
-    </div>
-    <div class="form row">
+
+
+  @*  <div class="form row">
+
         <div class="form-group col-lg-3">
             <label asp-for="CountryName" class="required"></label>
             <input type="text" asp-for="CountryName" class="form-control" />
@@ -137,179 +175,8 @@
             <small class="form-text text-muted">You can obtain from Google Maps</small>
             <span asp-validation-for="Longitude" class="text-danger"></span>
         </div>
-    </div>
+    </div>*@
    
-    @*<h3>Sanchalak Details</h3>
-    <div class="form-row">
-    <div class="form-group col-lg-3">
-    <label asp-for="SanchalakName1"></label>
-    <input type="text" asp-for="SanchalakName1" class="form-control"/>
-    <span asp-validation-for="SanchalakName1" class="text-danger"></span>
-    </div>
-    <div class="form-group col-lg-3">
-    <label asp-for="SanchalakEmail1"></label>
-    <input type="text" asp-for="SanchalakEmail1" class="form-control"/>
-    <span asp-validation-for="SanchalakEmail1" class="text-danger"></span>
-    </div>
-    <div class="form-group col-lg-3">
-    <label asp-for="SanchalakPhoneNumber1"></label>
-    <input type="text" asp-for="SanchalakPhoneNumber1" class="form-control"/>
-    <span asp-validation-for="SanchalakPhoneNumber1" class="text-danger"></span>
-    </div>
-    <div class="form-group col-lg-3">
-    <label asp-for="SanchalakName2"></label>
-    <input type="text" asp-for="SanchalakName2" class="form-control"/>
-    <span asp-validation-for="SanchalakName2" class="text-danger"></span>
-    </div>
-    <div class="form-group col-lg-3">
-    <label asp-for="SanchalakEmail2"></label>
-    <input type="text" asp-for="SanchalakEmail2" class="form-control"/>
-    <span asp-validation-for="SanchalakEmail2" class="text-danger"></span>
-    </div>
-    <div class="form-group col-lg-3">
-    <label asp-for="SanchalakPhoneNumber2"></label>
-    <input type="text" asp-for="SanchalakPhoneNumber2" class="form-control"/>
-    <span asp-validation-for="SanchalakPhoneNumber2" class="text-danger"></span>
-    </div>
-    </div>
-    *@
-    @*
-    <div class="form-row" id="AddressDropdowns">
-    <div class="form-group col-lg-3">
-    <label asp-for="StateId" class="required"></label>
-    <select asp-for="StateId" class="form-control">
-    <option value="">Select option</option>
-    </select>
-    <span asp-validation-for="StateId" class="text-danger"></span>
-    </div>
-    <div class="form-group col-lg-3">
-    <label asp-for="DistrictId" class="required"></label>
-    <select asp-for="DistrictId" class="form-control">
-    <option value="">Select option</option>
-    </select>
-    <span asp-validation-for="DistrictId" class="text-danger"></span>
-    </div>
-    <div class="form-group col-lg-3">
-    <label asp-for="TalukaId" class="required"></label>
-    <select asp-for="TalukaId" class="form-control">
-    <option value="">Select option</option>
-    </select>
-    <span asp-validation-for="TalukaId" class="text-danger"></span>
-    </div>
-    <div class="form-group col-lg-3">
-    <label asp-for="CityId" class="required"></label>
-    <select asp-for="CityId" class="form-control">
-    <option value="">Select option</option>
-    </select>
-    <span asp-validation-for="CityId" class="text-danger"></span>
-    </div>
-    </div>*@
-    @*
-    <h4>Facilities</h4>
-    <hr/>
-
-    <div class="form-row">
-    <div class="form-group col-lg-3">
-    <label asp-for="Length" class="required"></label>
-    <input type="text" asp-for="Length" class="form-control"/>
-    <small class="form-text text-muted">Meditation hall length in feet</small>
-    <span asp-validation-for="Length" class="text-danger"></span>
-    </div>
-    <div class="form-group col-lg-3">
-    <label asp-for="Width" class="required"></label>
-    <input type="text" asp-for="Width" class="form-control"/>
-    <small class="form-text text-muted">Meditation hall width in feet</small>
-    <span asp-validation-for="Width" class="text-danger"></span>
-    </div>
-    <div class="form-group col-lg-3">
-    <label asp-for="Height" class="required"></label>
-    <input type="text" asp-for="Height" class="form-control"/>
-    <small class="form-text text-muted">Meditation hall height in feet</small>
-    <span asp-validation-for="Height" class="text-danger"></span>
-    </div>
-    <div class="form-group col-lg-3">
-    <label asp-for="Library" class="required"></label>
-    <select asp-for="Library" class="form-control">
-    <option value="">Select option</option>
-    <option value="true">Yes</option>
-    <option value="false">No</option>
-    </select>
-    <span asp-validation-for="Library" class="text-danger"></span>
-    </div>
-    </div>
-
-    <div class="form-row">
-    <div class="form-group col-lg-3">
-    <label asp-for="ParkingSpace" class="required"></label>
-    <select asp-for="ParkingSpace" class="form-control">
-    <option value="">Select option</option>
-    <option value="true">Yes</option>
-    <option value="false">No</option>
-    </select>
-    <span asp-validation-for="ParkingSpace" class="text-danger"></span>
-    </div>
-    <div class="form-group col-lg-3">
-    <label asp-for="GroundFloor" class="required"></label>
-    <select asp-for="GroundFloor" class="form-control">
-    <option value="">Select option</option>
-    <option value="true">Yes</option>
-    <option value="false">No</option>
-    </select>
-    <span asp-validation-for="GroundFloor" class="text-danger"></span>
-    </div>
-    <div class="form-group col-lg-3">
-    <label asp-for="AirConditioner" class="required"></label>
-    <select asp-for="AirConditioner" class="form-control">
-    <option value="">Select option</option>
-    <option value="true">Yes</option>
-    <option value="false">No</option>
-    </select>
-    <span asp-validation-for="AirConditioner" class="text-danger"></span>
-    </div>
-    <div class="form-group col-lg-3">
-    <label asp-for="ToiletBathRoom" class="required"></label>
-    <select asp-for="ToiletBathRoom" class="form-control">
-    <option value="">Select option</option>
-    <option value="true">Yes</option>
-    <option value="false">No</option>
-    </select>
-    <span asp-validation-for="ToiletBathRoom" class="text-danger"></span>
-    </div>
-    </div>
-
-    <div class="form-row">
-    <div class="form-group col-lg-3">
-    <label asp-for="NoticeBoard" class="required"></label>
-    <select asp-for="NoticeBoard" class="form-control">
-    <option value="">Select option</option>
-    <option value="true">Yes</option>
-    <option value="false">No</option>
-    </select>
-    <span asp-validation-for="NoticeBoard" class="text-danger"></span>
-    </div>
-    <div class="form-group col-lg-3">
-    <label asp-for="NoiseLevel" class="required"></label>
-    <select asp-for="NoiseLevel" class="form-control" asp-items="Html.GetEnumSelectList<NoiseLevel>()">
-    <option value="">Select option</option>
-    </select>
-    <span asp-validation-for="NoiseLevel" class="text-danger"></span>
-    </div>
-    <div class="form-group col-lg-3">
-    <label asp-for="Ventillation" class="required"></label>
-    <select asp-for="Ventillation" class="form-control" asp-items="Html.GetEnumSelectList<Ventillation>()">
-    <option value="">Select option</option>
-    </select>
-    <span asp-validation-for="Ventillation" class="text-danger"></span>
-    </div>
-    <div class="form-group col-lg-3">
-    <label asp-for="RoofType" class="required"></label>
-    <select asp-for="RoofType" class="form-control" asp-items="Html.GetEnumSelectList<RoofType>()">
-    <option value="">Select option</option>
-    </select>
-    <span asp-validation-for="RoofType" class="text-danger"></span>
-    </div>
-    </div>*@
-
     <h4>Contacts</h4>
     <hr/>
     <div class="form row">
@@ -355,58 +222,110 @@
     <button type="submit" class="btn btn-success">@(Model?.Id != null ? "Save Changes" : "Register")</button>
     <a href="@Url.Action("Index", "DhyanKendra", new { area = "" })" class="btn btn-primary">Cancel</a>
 </form>
-@*<form class="my-4" asp-action="Edit" method="post">
-    <div asp-validation-summary="All" class="text-danger"></div>
 
+@section Scripts
+{
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#datepicker").datepicker();
+        });
+    </script>
+}
 
-    <div class="form-group">
-        <label asp-for="FirstName">First Name:</label>
-        <input asp-for="FirstName" class="form-control">
-        <span class="text-danger" asp-validation-for="FirstName"></span>
-    </div>
+@*@section Scripts
+    {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cascading-dropdown/1.2.9/jquery.cascadingdropdown.min.js"></script>
 
-    <div class="form-group">
-        <label asp-for="LastName">Last Name:</label>
-        <input asp-for="LastName" class="form-control">
-        <span class="text-danger" asp-validation-for="LastName"></span>
-    </div>
+    <script>
 
-    <div class="form-group">
-        <label asp-for="Phone">Phone:</label>
-        <input asp-for="Phone" class="form-control">
-        <span class="text-danger" asp-validation-for="Phone"></span>
-    </div>
+        var stateId = @(Model?.StateId != null ? $"{Model.StateId}" : "null");
+        var districtId = @(Model?.DistrictId != null ? $"{Model.DistrictId}" : "null");
+        var talukaId = @(Model?.TalukaId != null ? $"{Model.TalukaId}" : "null");
+        var cityId = @(Model?.CityId != null ? $"{Model.CityId}" : "null");
 
-    <div class="form-group">
-        <label asp-for="Email">Email:</label>
-        <input asp-for="Email" class="form-control">
-        <span class="text-danger" asp-validation-for="Email"></span>
-    </div>
+        $('#AddressDropdowns').cascadingDropdown({
+            selectBoxes: [
+                {
+                    selector: '#StateId',
+                    paramName: 'id',
+                    source: function (request, response) {
+                        $.getJSON('/api/data2/states?id=76', request, function (data) {
+                            response($.map(data, function (item, index) {
+                                return {
+                                    label: item.Name,
+                                    value: item.Id,
+                                    selected: item.Id == stateId
+                                };
+                            }));
+                        });
+                    }
+                },
+                {
+                    selector: '#DistrictId',
+                    requires: ['#StateId'],
+                    paramName: 'id',
+                    source: function (request, response) {
+                        $.getJSON('/api/data2/districts', request, function (data) {
+                            response($.map(data, function (item, index) {
+                                return {
+                                    label: item.Name,
+                                    value: item.Id,
+                                    selected: item.Id == districtId
+                                };
+                            }));
+                        });
+                    }
+                },
+                {
+                    selector: '#TalukaId',
+                    requires: ['#StateId', '#DistrictId'],
+                    requireAll: true,
+                    paramName: 'id',
+                    source: function (request, response) {
+                        $.getJSON('/api/data2/talukas', request, function (data) {
+                            response($.map(data, function (item, index) {
+                                return {
+                                    label: item.Name,
+                                    value: item.Id,
+                                    selected: item.Id == talukaId
+                                };
+                            }));
+                        });
+                    }
+                },
+                {
+                    selector: '#CityId',
+                    requires: ['#StateId', '#DistrictId', '#TalukaId'],
+                    requireAll: true,
+                    paramName: 'id',
+                    source: function (request, response) {
+                        $.getJSON('/api/data2/villages', request, function (data) {
+                            response($.map(data, function (item, index) {
+                                return {
+                                    label: item.Name,
+                                    value: item.Id,
+                                    selected: item.Id == cityId
+                                };
+                            }));
+                        });
+                    }
+                }
+            ]
+        });
 
-    <div class="form-group">
-        <label asp-for="CategoryId">Category</label>
-        <select asp-for="CategoryId" class="form-control">
-            <option value="">select a category</option>
-            @foreach (Category c in ViewBag.Categories)
-            {
-                <option value="@c.CategoryId">@c.CategoryName</option>
-            }
-        </select>
-        <span class="text-danger" asp-validation-for="CategoryId"></span>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Organization">Organization:</label>
-        <input asp-for="Organization" class="form-control">
-        <span class="text-danger" asp-validation-for="Organization"></span>
-    </div>
-
-    <input type="hidden" asp-for="ContactId" />
-
-    <div class="my-4">
-        <button type="submit" class="btn btn-secondary">@ViewBag.Action</button>
-        <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Cancel</a>
-    </div>
-
-</form>*@
+    </script>
+}*@
+@*
+    @section Header
+    {
+    <style>
+        label.required::after {
+            color: red;
+            content: " *";
+        }
+    </style>*@
 
